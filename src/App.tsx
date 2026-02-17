@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AppLayout from "./components/layout/AppLayout";
 import ProtectedRoute from "./components/guards/ProtectedRoute";
-import Users from "./pages/Users";
+import Users from "./pages/users/Users";
 import Products from "./pages/Products";
 
 function App() {

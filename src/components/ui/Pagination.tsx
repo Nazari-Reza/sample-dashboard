@@ -40,7 +40,7 @@ const Pagination = ({
         showing{" "}
         <span className="text-slate-200 font-medium">
           {from}-{to}
-        </span>
+        </span>{" "}
         of <span className="text-slate-200 font-medium">{totalItems}</span>
       </p>
 

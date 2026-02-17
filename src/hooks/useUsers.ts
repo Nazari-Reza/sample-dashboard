@@ -4,7 +4,7 @@ import { apiGetUsers } from "../api/dummyjson/api";
 
 const PAGE_SIZE = 10;
 
-export const setUsers = () => {
+export const useUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
