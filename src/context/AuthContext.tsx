@@ -1,36 +1,40 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
+import { AuthUser } from "../api/dummyjson/types";
 
-interface User {
-  id: number;
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  accessToken: string;
-  image: string;
-}
+const STORAGE_KEY = "auth_user";
+
 interface AuthContextType {
-  user: User | null;
-  login: (userData: User) => void;
+  user: AuthUser | null;
+  login: (userData: AuthUser) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem("user");
-    return stored ? JSON.parse(stored) : null;
+  const [user, setUser] = useState<AuthUser | null>(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? (JSON.parse(stored) as AuthUser) : null;
+    } catch {
+      return null;
+    }
   });
-  const login = (userDate: User) => {
+  const login = useCallback((userDate: AuthUser) => {
     setUser(userDate);
-    localStorage.setItem("user", JSON.stringify(userDate));
-  };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(userDate));
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
-    localStorage.removeItem("user");
-  };
+    localStorage.removeItem(STORAGE_KEY);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

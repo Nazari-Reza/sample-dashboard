@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../api/dummyjson";
+import { loginUser } from "../api/dummyjson/api";
 
 const Login = () => {
   const [username, setUserName] = useState("emilys");
@@ -18,7 +18,7 @@ const Login = () => {
     try {
       const res = await loginUser(username, password);
       login(res.data);
-      navigate("/daashboard");
+      navigate("/dashboard");
     } catch (error) {
       setError("Invalid Credentials.");
     } finally {
