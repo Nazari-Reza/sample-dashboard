@@ -7,9 +7,9 @@ const AppLayout = () => {
   return (
     <div className="flex min-h-screen bg-slate-950">
       <Sidebar />
-      <div>
+      <div className="flex-1 flex flex-col min-w-0">
         <Navbar />
-        <main className="flex-1 overflow-auto">
+        <main className="p-6 flex-1 overflow-auto">
           <Outlet />
         </main>
       </div>
