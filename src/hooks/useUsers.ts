@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { PaginationState, User } from "../api/dummyjson/types";
-import { apiGetUsers } from "../api/dummyjson/api";
+import { apiGetUsers } from "../api/dummyjson";
 
 const PAGE_SIZE = 10;
 

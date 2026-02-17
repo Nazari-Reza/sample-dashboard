@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import AppLayout from "./components/layout/AppLayout";
 import ProtectedRoute from "./components/guards/ProtectedRoute";
 import Users from "./pages/users/Users";
-import Products from "./pages/Products";
+import Products from "./pages/products/Products";
 
 function App() {
   return (
