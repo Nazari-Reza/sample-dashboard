@@ -2,8 +2,13 @@ import React from "react";
 import { useAuth } from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
 
-const links = [
+interface NavItem {
+  to: string;
+  label: string;
+}
+const NAV_ITEMS: NavItem[] = [
   { to: "/dashboard", label: "Dashboard" },
+  { to: "/users", label: "Users" },
   { to: "/products", label: "Products" },
 ];
 
@@ -16,10 +21,11 @@ const Sidebar = () => {
         <span className="text-xl font-bold text-white">
           {[`${user?.firstName ?? ""}`, `${user?.lastName ?? ""}`].join(" ")}
         </span>
+        <p className="text-xs text-slate-500 truncate">{user?.email}</p>
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-1">
-        {links.map(({ to, label }) => (
+        {NAV_ITEMS.map(({ to, label }) => (
           <NavLink
             key={to}
             to={to}
