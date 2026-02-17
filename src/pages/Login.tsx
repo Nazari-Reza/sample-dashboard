@@ -18,7 +18,7 @@ const Login = () => {
     try {
       const res = await loginUser(username, password);
       login(res.data);
-      navigate("/dashboard");
+      navigate("/users");
     } catch (error) {
       setError("Invalid Credentials.");
     } finally {

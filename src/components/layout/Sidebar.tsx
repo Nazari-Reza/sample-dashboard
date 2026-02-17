@@ -7,7 +7,6 @@ interface NavItem {
   label: string;
 }
 const NAV_ITEMS: NavItem[] = [
-  { to: "/dashboard", label: "Dashboard" },
   { to: "/users", label: "Users" },
   { to: "/products", label: "Products" },
 ];

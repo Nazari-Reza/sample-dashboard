@@ -9,7 +9,7 @@ import {
 const RAWG_KEY = "7c44f30d6b4f41849f6967bbf3999949";
 const rawg = axios.create({
   baseURL: "https://api.rawg.io/api",
-  params: { key: RAWG_KEY }, // key injected on every request
+  params: { key: RAWG_KEY },
 });
 
 export const apiGetGames = (
@@ -27,7 +27,6 @@ export const apiGetGames = (
     tags: filters.tags?.map((t) => t.slug).join(",") || undefined,
   };
 
-  // Remove undefined keys
   Object.keys(params).forEach(
     (k) => params[k] === undefined && delete params[k],
   );
